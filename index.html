@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet"> 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyCountDown</title>
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      font-family: 'Covered By Your Grace', cursive;
+      font-size: 30px;
+      color: white;
+      margin: 0;
+      display: flex;
+      flex-direction:row;
+    }
+    /* #quote {
+      position: fixed;
+      bottom: 30px;
+      right: 40px;
+      margin: 0;
+    } */
+    #timer {
+      line-height: 1;
+      padding: 20px;
+      font-size: 40px;
+      padding-right: 52px;
+    }
+    #timer span {
+      display: block;
+      font-size: 20px;
+      color: white;
+      text-align: center;
+    }
+    #timer div {
+      text-align: center;
+    }
+    #days {
+      font-size: 200px;
+    }
+    #hours {
+      font-size: 150px;
+    }
+    #minutes {
+      font-size: 110px;
+    }
+    #seconds {
+      font-size: 80px;
+    }
+
+    .counter-left {
+      display: inline-block;
+      background-color: #33dbff;
+      width: 50%;
+      height: 100vh;
+    }
+    .quote-right {
+      display: inline-block;
+      width: 50%;
+      height: 100vh;
+    }
+
+    ul{
+      margin:0;
+      padding:0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    li{
+      text-align:center;
+      display:inline-block;
+      list-style:none;
+      position:relative;
+      border:solid 12px #fff;
+      border-bottom: solid 40px #fff;
+      background:#fff;
+      transform:rotate(10deg);
+      box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-left">
+    <div id="timer">
+      <div id="days"></div>
+      <div id="hours"></div>
+      <div id="minutes"></div>
+      <div id="seconds"></div>
+    </div>
+  </div>
+  <div class="polaroid-center">
+
+    <ul>
+      <li>
+        <img src="https://unsplash.it/300/300" width="300" id="img">
+      </li>
+    </ul>
+  </div>
+  <div class="quote-right">
+    <p id="quote"></p>
+  </div>
+
+  <script type="text/javascript">
+    function makeTimer() {
+
+    var endTime = new Date("August 5, 2022 17:30:00");			
+    var endTime = (Date.parse(endTime)) / 1000;
+
+    var now = new Date();
+    var now = (Date.parse(now) / 1000);
+
+    var timeLeft = endTime - now;
+
+    var days = Math.floor(timeLeft / 86400); 
+    var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+    var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+    var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+    if (hours < "10") { hours = "0" + hours; }
+    if (minutes < "10") { minutes = "0" + minutes; }
+    if (seconds < "10") { seconds = "0" + seconds; }
+
+    document.getElementById("days").innerHTML = days + "<span>Giorni</span>";
+    document.getElementById("hours").innerHTML = hours + "<span>Ore</span>";
+    document.getElementById("minutes").innerHTML = minutes + "<span>Minuti</span>";
+    document.getElementById("seconds").innerHTML = seconds + "<span>Secondi</span>";		
+
+    }
+
+    setInterval(function() { makeTimer(); }, 1000);
+  </script>
+
+  <script>
+    let quotes = [
+      "Ama il tuo lavoro e non lavorerai un solo giorno",
+      "Che fate questo weekend?",
+      "Sono troppo carismatica",
+      "GIUÀ!",
+      "I miei figli hanno il sistema immunitario dei criceti",
+      "Santa Pace!",
+      "Buon Dio della France",
+      "Devi essere meno trasparente",
+      "We bella, mi stai swirlando la macchina?",
+      "Ue Federicaaaa",
+      "Papi, ho acceso la tenda!",
+      "PRINCIPEEEEE",
+      "Feder… Robbè… Sabrì… Aè, vogl ricer Rita!",
+      "Quando Patrizia stava a Genova...",
+      "La vuoi la Smart?",
+      "Dobbiamo chiudere il tavolo, dobbiamo mettere 90 euro a testa!",
+      "Cos'è l’amore?",
+      "Rabbia!!",
+      "Matchy matchy",
+      "Te schif comm schif a merd",
+      "Fede dai, leggicela",
+      "Qualcuno deve bere?",
+      "Marco andiamo a fare il prelievo",
+      "Sto senza macchina, sta dall'elettrauto",
+      "Quanti anni mancano alla fine della giornata?",
+      "Roby se mangi questo muori?",
+      "Federì frat't-cucin adda fa sfugà a chell",
+      "una cimice, UNA CIMICE, UNA CiMicE",
+      "Ragazzi, oggi non ho il pranzo",
+      "I ATE TURKEY STEW",
+      "Bisogna dire a Peppe di pulire"
+    ];
+
+    let randomNumber = Math.floor(Math.random() * (quotes.length));
+    document.getElementById('quote').innerHTML = '"' + quotes[randomNumber] + '"';
+  </script>
+
+  <script>
+    let n = Math.floor(Math.random() * 145);
+    if ((Math.log(n) * Math.LOG10E + 1 | 0) == 1) {
+      document.getElementById("img").src = "./fcd_images/image0000" + n + ".jpeg";
+    } else if ((Math.log(n) * Math.LOG10E + 1 | 0) == 2) {
+      document.getElementById("img").src = "./fcd_images/image000" + n + ".jpeg";
+    } else if ((Math.log(n) * Math.LOG10E + 1 | 0) == 3) {
+      document.getElementById("img").src = "./fcd_images/image00" + n + ".jpeg";
+    }
+  </script>
+</body>
+</html>
