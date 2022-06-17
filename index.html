@@ -22,9 +22,6 @@
     }
     #quote {
       width: 18%;
-      position: fixed;
-      right: 15%;
-      top: 25%;
       font-size: 3em;
       line-height: 95px;
       color: #33dbff;
@@ -65,9 +62,17 @@
       height: 100vh;
     }
     .quote-right {
-      display: inline-block;
       width: 50%;
       height: 100vh;
+      display: -webkit-flexbox;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      justify-content: center;
     }
 
     ul{
