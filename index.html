@@ -102,34 +102,25 @@
         .counter-left {
           display: block;
           width: 100%;
+          padding: 50px 0;
         }
         #quote_mobile {
           font-size: 23px;
           color: #33dbff;
           text-align: center;
+          margin: 0;
         }
         .quote-right {
           display: none;
         }
         #timer {
-          line-height: 1;
-          padding: 0;
-          padding-right: 0px;
-          display: flex;
           margin: 0 auto;
+          width: fit-content;
+          display: flex;
         }      
         #timer div {
           display: inline;
           padding-right: 18px;
-          display: -webkit-flexbox;
-          display: -ms-flexbox;
-          display: -webkit-flex;
-          display: flex;
-          -webkit-flex-align: center;
-          -ms-flex-align: center;
-          -webkit-align-items: center;
-          align-items: center;
-          justify-content: center;
         }
         #timer div span {
           max-width: 80px;
@@ -145,6 +136,12 @@
         }
         #seconds {
           font-size: 20px;
+        }
+        ul {
+          margin: 50px 0 0 0;
+        }
+        li {
+          border-bottom: solid 20px #fff;
         }
       }
     </style>
@@ -259,7 +256,7 @@
       if (!window.mobileCheck())
         document.getElementById("img").style.width = '300px'
       else
-        document.getElementById("img").style.width = '100px'
+        document.getElementById("img").style.width = '200px'
 
       let n = Math.floor(Math.random() * 202);
       if ((Math.log(n) * Math.LOG10E + 1 | 0) == 1) {
